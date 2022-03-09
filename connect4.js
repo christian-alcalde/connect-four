@@ -18,9 +18,9 @@ let board = []; // array of rows, each row is array of cells  (board[y][x])
  */
 
 function makeBoard() {
-  for (let i = 0; i < HEIGHT; i++) {
+  for (let y = 0; y < HEIGHT; y++) {
     let row = [];
-    for (let j = 0; j < WIDTH; j++) {
+    for (let x = 0; x < WIDTH; x++) {
       row.push(null);
     }
     board.push(row);
@@ -30,7 +30,7 @@ function makeBoard() {
 /** makeHtmlBoard: make HTML table and row of column tops. */
 
 function makeHtmlBoard() {
-  let htmlBoard = document.getElementById("board");
+  const htmlBoard = document.getElementById("board");
 // creates click event listeners for tr elements and sets Id "column-top"
   const top = document.createElement("tr");
   top.setAttribute("id", "column-top");
@@ -48,10 +48,10 @@ function makeHtmlBoard() {
   // uses HEIGHT to create table rows
   // uses WIDTH to create table cells for each row
   for (let y = 0; y < HEIGHT; y++) {
-    let row = document.createElement("tr");
+    const row = document.createElement("tr");
     for (let x = 0; x < WIDTH; x++) {
       let cell = document.createElement("td");
-      cell.setAttribute("id", "y-x");
+      cell.setAttribute("id", `${y}-${x}`);
       // you'll use this later, so make sure you use y-x
       row.append(cell);
     }
