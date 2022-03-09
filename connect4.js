@@ -47,15 +47,11 @@ function makeHtmlBoard() {
 
     for (var x = 0; x < WIDTH; x++) {
       // TODO: Create a table cell element and assign to a "cell" variable
-
       // TODO: add an id, y-x, to the above table cell element
       // you'll use this later, so make sure you use y-x
-
       // TODO: append the table cell to the table row
-
     }
     // TODO: append the row to the html board
-
   }
 }
 
@@ -109,17 +105,14 @@ function handleClick(evt) {
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
 
 function checkForWin() {
-
   /** _win:
    * takes input array of 4 cell coordinates [ [y, x], [y, x], [y, x], [y, x] ]
    * returns true if all are legal coordinates for a cell & all cells match
    * currPlayer
    */
   function _win(cells) {
-
     // TODO: Check four cells to see if they're all legal & all color of current
     // player
-
   }
 
   // using HEIGHT and WIDTH, generate "check list" of coordinates
@@ -132,7 +125,12 @@ function checkForWin() {
       // each should be an array of 4 cell coordinates:
       // [ [y, x], [y, x], [y, x], [y, x] ]
 
-      let horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
+      let horiz = [
+        [y, x],
+        [y, x + 1],
+        [y, x + 2],
+        [y, x + 3],
+      ];
       let vert;
       let diagDL;
       let diagDR;
@@ -147,3 +145,39 @@ function checkForWin() {
 
 makeBoard();
 makeHtmlBoard();
+
+// What HTML would be useful
+//  -using rows and table html elements for game board
+//  -each box should contain a div element (so we can use css)
+//  -make sure each "box element" has a coordinate of x and y
+//    through id's
+//
+// how could you represent a played-piece in the HTML board?
+//  -each box has has a div element
+//  -every click would switch between players
+//  -have different css classes for both game pieces (red/blue)
+//
+// in the JavaScript, what would be a good structure for
+//  the in-memory game board?
+//  -using rows and table html elements for game board
+//  -put a div in each box
+//
+// what might the flow of the game be?
+//  -game starts with red player, then blue
+//  -keep playing until someone makes 4 in a row or board is filled
+//
+//
+// Function names/descriptions
+// function createBoard()
+//  - create a board 7 across, 7 high using rows and tables containing
+//    a div inside each box
+//  - last row added will be used for making moves, each box here should
+//    have an eventListener
+// function makeMove()
+//  - place a piece on the board
+// function switchPlayer()
+//  - changes game piece color
+// function checkForWin()
+//  - checks if a player has 4 in a row
+// function checkIfSpotsOpen()
+//  - checks if any divs are null, if not, then tie
