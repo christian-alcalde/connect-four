@@ -134,9 +134,18 @@ function checkForWin() {
    * returns true if all are legal coordinates for a cell & all cells match
    * currPlayer
    */
+
+  //TODO: finish _win function
   function _win(cells) {
+    /*for(let i = 0; i < cells.length; i++){
+      console.log(board[cells[i][0]][cells[i][1]])
+      if(board[cells[i][0]][cells[i][1]] !== undefined){
+
+      }*/
+    }
     // TODO: Check four cells to see if they're all legal & all color of current
     // player
+
   }
 
   // using HEIGHT and WIDTH, generate "check list" of coordinates
@@ -144,10 +153,6 @@ function checkForWin() {
   // ways to win: horizontal, vertical, diagonalDR, diagonalDL
   for (let y = 0; y < HEIGHT; y++) {
     for (let x = 0; x < WIDTH; x++) {
-      // TODO: assign values to the below variables for each of the ways to win
-      // horizontal has been assigned for you
-      // each should be an array of 4 cell coordinates:
-      // [ [y, x], [y, x], [y, x], [y, x] ]
 
       let horiz = [
         [y, x],
