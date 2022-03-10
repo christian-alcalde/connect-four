@@ -31,7 +31,11 @@ function makeBoard() {
 
 function makeHtmlBoard() {
   const htmlBoard = document.getElementById("board");
+<<<<<<< HEAD
   // creates click event listeners for tr elements and sets Id "column-top"
+=======
+// creates click event listeners for tr elements and sets Id "column-top"
+>>>>>>> 3e231523d4e05f2c203e7af91ad0b59f1c98c6f7
   const top = document.createElement("tr");
   top.setAttribute("id", "column-top");
   top.addEventListener("click", handleClick);
