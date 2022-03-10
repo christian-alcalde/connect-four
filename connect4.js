@@ -62,8 +62,8 @@ function makeHtmlBoard() {
 /** findSpotForCol: given column x, return bottom empty y (null if filled) */
 
 function findSpotForCol(x) {
-  for(let y = 5; y > 0; y--){
-    if(board[y][x] === null){
+  for (let y = 5; y >= 0; y--) {
+    if (board[y][x] === null) {
       board[y][x] = currPlayer;
       return y;
     }
@@ -110,9 +110,11 @@ function handleClick(evt) {
   }
 
   // check for tie
+  // TODO: error says row is not defined
+
   if (
-    board.every(row, function () {
-      row.every(cell, function () {
+    board.every(function (row) {
+      row.every(function (cell) {
         cell !== null;
       });
     })
@@ -153,9 +155,24 @@ function checkForWin() {
         [y, x + 2],
         [y, x + 3],
       ];
-      let vert;
-      let diagDL;
-      let diagDR;
+      let vert = [
+        [y, x],
+        [y + 1, x],
+        [y + 2, x],
+        [y + 3, x],
+      ];
+      let diagDL = [
+        [y, x],
+        [y + 1, x - 1],
+        [y + 2, x - 2],
+        [y + 3, x - 3],
+      ];
+      let diagDR = [
+        [y, x],
+        [y + 1, x + 1],
+        [y + 2, x + 2],
+        [y + 3, x + 3],
+      ];
 
       // find winner (only checking each win-possibility as needed)
       if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
